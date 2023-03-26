@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     con_banner: {
         marginLeft: 25,
         marginRight: 25,
-        marginTop: 80,
+        marginTop: 85,
         height: 140,
     },
     con_banner_image: {

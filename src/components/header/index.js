@@ -22,7 +22,7 @@ const Header = () => {
   )
 }
 
-// Variable styles "Homepage"
+// Variable styles "Header"
 const styles = StyleSheet.create({
     // Header Section #START
     con_header: {
