@@ -1,8 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, Image, ImageBackground, TouchableOpacity, ScrollView } from 'react-native';
 import logo_header from "../../assets/img/logo_header.png"
 import profile_header from "../../assets/img/profile_header.png"
 import banner from "../../assets/img/banner.png"
+import right_arrow from "../../assets/img/right_arrow.png"
+import lapangan from "../../assets/img/lapangan.png"
 
 const Homepage = () => {
   return (
@@ -32,6 +34,45 @@ const Homepage = () => {
         </ImageBackground>
     </View>
     {/* Banner Section #END */}
+
+    {/* Content Section #START */}
+    <View style={styles.con_content}>
+        <TouchableOpacity style={styles.con_content_title}>
+            <View>
+                <Text style={styles.con_content_title_head}>Lapangan Futsal</Text>
+                <Text  style={styles.con_content_title_sub}>Lapangan futsal menarik beserta ketersediaannya</Text>
+            </View>
+            <View style={styles.con_content_ic}>
+            <Image source={right_arrow} style={styles.con_content_ic_image} />
+            </View>
+        </TouchableOpacity>
+        <ScrollView horizontal style={styles.con_content_list}>
+            <TouchableOpacity style={styles.con_content_list_card}>
+                <View>
+                    <Image source={lapangan} style={styles.con_content_list_image} />
+                    <View style={styles.con_content_list_text}>
+                        <Text style={styles.con_content_list_head}>CENTRO FUTSAL</Text>
+                        <Text style={styles.con_content_list_sub}>Jakarta Barat Kb. Jeruk</Text>
+                    </View>
+                </View>
+            </TouchableOpacity>
+        </ScrollView>
+    </View>
+    {/* Content Section #END */}
+
+    {/* News Section #START */}
+    <View style={styles.con_content}>
+        <TouchableOpacity style={styles.con_content_title}>
+            <View>
+                <Text style={styles.con_content_title_head}>Berita Terkini</Text>
+                <Text  style={styles.con_content_title_sub}>Informasi Mengenai Sepakbola</Text>
+            </View>
+            <View style={styles.con_content_ic}>
+            <Image source={right_arrow} style={styles.con_content_ic_image} />
+            </View>
+        </TouchableOpacity>
+    </View>
+    {/* News Section #END */}
     </>
   );
 };
@@ -109,8 +150,70 @@ const styles = StyleSheet.create({
         fontSize:12,
         fontFamily: "Poppins-Regular",
         color: "white"
-    }
+    },
     // Banner Section #END
+
+    // Content Section #END
+    con_content: {
+        width: "100%",
+        height: 175,
+        marginTop:35,
+        marginLeft: 25
+    },
+    con_content_title: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    con_content_title_head: {
+        fontSize: 12,
+        fontFamily: "Poppins-Bold"
+    },
+    con_content_title_sub: {
+        fontSize: 9,
+        fontFamily: "Poppins-Medium"
+    },
+    con_content_ic: {
+        width: 50,
+        marginRight: 50,
+        alignItems: 'flex-end'
+    },
+    con_content_ic_image: {
+        width:35,
+        resizeMode: 'contain'
+    },
+    con_content_list: {
+        flex: 1,
+        flexDirection:'row'
+    },
+    con_content_list_card: {
+        backgroundColor: "white",
+        width: 120,
+        borderRadius:10,
+        marginRight: 10,
+        shadowColor: '#171717',
+        shadowOffset: {width: -2, height: 4},
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
+    },
+    con_content_list_image: {
+        width: '100%',
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10,
+        height: 80,
+        resizeMode: 'contain',
+    },
+    con_content_list_head: {
+        fontSize:8,
+        fontFamily: "Poppins-Bold"
+    },
+    con_content_list_sub: {
+        fontSize:8,
+        fontFamily: "Poppins-Regular"
+    },
+    con_content_list_text: {
+        padding: 4
+    }
+    // Content Section #END
 });
 
 
