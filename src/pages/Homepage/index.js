@@ -1,31 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, ImageBackground, TouchableOpacity, ScrollView } from 'react-native';
-import logo_header from "../../assets/img/logo_header.png"
-import profile_header from "../../assets/img/profile_header.png"
 import banner from "../../assets/img/banner.png"
 import right_arrow from "../../assets/img/right_arrow.png"
-import lapangan from "../../assets/img/lapangan.png"
+import field from "../../assets/img/field.png"
+import news_banner from "../../assets/img/news_banner.png"
+import Header from '../../components/header';
 
 const Homepage = () => {
   return (
     <>
-    {/* Header Section #START */}
-    <View style={styles.con_header}>
-        <View style={styles.con_header_parent}>
-            <View style={styles.con_header_logo}>
-                <Image source={logo_header} style={styles.header_logo_image} />
-            </View>
-            <View style={styles.con_header_profile}>
-                <View></View>
-                <View style={styles.con_header_profile_child}>
-                    <Text style={styles.header_profile_text}>Hai Donny!</Text>
-                    <Image source={profile_header} style={styles.header_profile_image} />
-                </View>
-            </View>
-        </View>
-    </View>
-    {/* Header Section #END */}
-
+    <Header />
+    <ScrollView>
     {/* Banner Section #START */}
     <View style={styles.con_banner}>
         <ImageBackground source={banner} style={styles.con_banner_image}>
@@ -49,7 +34,7 @@ const Homepage = () => {
         <ScrollView horizontal style={styles.con_content_list}>
             <TouchableOpacity style={styles.con_content_list_card}>
                 <View>
-                    <Image source={lapangan} style={styles.con_content_list_image} />
+                    <Image source={field} style={styles.con_content_list_image} />
                     <View style={styles.con_content_list_text}>
                         <Text style={styles.con_content_list_head}>CENTRO FUTSAL</Text>
                         <Text style={styles.con_content_list_sub}>Jakarta Barat Kb. Jeruk</Text>
@@ -71,67 +56,24 @@ const Homepage = () => {
             <Image source={right_arrow} style={styles.con_content_ic_image} />
             </View>
         </TouchableOpacity>
+        <ImageBackground source={news_banner} style={styles.con_news_image}>
+            <Text style={styles.con_news_head}>5 Rekomendasi Lapangan Futsal di Jakarta Barat</Text>
+            <Text style={styles.con_news_sub}>SocIndo merekomendasikan lapangan yang ada disekitar jakarta</Text>
+        </ImageBackground>
     </View>
     {/* News Section #END */}
+    </ScrollView>
     </>
   );
 };
 
 // Variable styles "Homepage"
 const styles = StyleSheet.create({
-    // Header Section #START
-    con_header: {
-        backgroundColor: "white",
-        width: '100%',
-        height: 65,
-        shadowColor: '#171717',
-        shadowOffset: {width: -2, height: 4},
-        shadowOpacity: 0.2,
-        shadowRadius: 3,
-    },
-    con_header_parent: {
-        flexDirection: 'row',
-        justifyContent: "space-between",
-        marginLeft: 25,
-        marginRight: 25,
-        height: '100%',
-    },
-    con_header_logo: {
-        width: 160,
-        justifyContent:'center',
-    },
-    header_logo_image: {
-        resizeMode: "contain",
-        width: 120,
-        marginTop: 10
-    },
-    con_header_profile: {
-        width: 160,
-        height: "100%",
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between'
-    },
-    con_header_profile_child: {
-        flexDirection: 'row',
-        alignItems: 'center'
-    },
-    header_profile_text: {
-        fontFamily: "Poppins-Medium",
-        fontSize: 12,
-        marginRight:5
-    },
-    header_profile_image: {
-        width: 35,
-        resizeMode: 'contain',
-    },
-    // Header Section #END
-
     // Banner Section #START
     con_banner: {
         marginLeft: 25,
         marginRight: 25,
-        marginTop: 25,
+        marginTop: 80,
         height: 140,
     },
     con_banner_image: {
@@ -212,8 +154,29 @@ const styles = StyleSheet.create({
     },
     con_content_list_text: {
         padding: 4
-    }
+    },
     // Content Section #END
+
+    // News Section #START
+    con_news_image: {
+        backgroundColor: "red",
+        marginRight: 50,
+        height: 100,
+        borderRadius: 10,
+        padding: 10,
+        justifyContent: "flex-end"
+    },
+    con_news_head: {
+        fontFamily: "Poppins-Bold",
+        fontSize:10,
+        color: "white"
+    },
+    con_news_sub: {
+        fontFamily: "Poppins-Medium",
+        fontSize:9,
+        color: "white"
+    }
+    // News Section #END
 });
 
 
