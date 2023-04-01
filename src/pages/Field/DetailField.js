@@ -9,6 +9,7 @@ import { useNavigation } from '@react-navigation/native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
 
+
 const DetailField = () => {
   const navigation = useNavigation();
 
