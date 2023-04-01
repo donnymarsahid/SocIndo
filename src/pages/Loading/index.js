@@ -10,7 +10,7 @@ const Loading = () => {
     const _staticLoad = () => {
         setTimeout(() => {
             navigation.navigate("Start")
-        }, 2000);
+        }, 1500);
     }
     
     useEffect(() => {
