@@ -50,7 +50,7 @@ const Login = () => {
                     ]
                   );
               return;
-            }else if(formData.username === "user123" && formData.password === "user123") {
+            }else if(formData.username === "donnymrshd" && formData.password === "user123") {
                 navigation.navigate("Load2") 
             } else { 
               Alert.alert(

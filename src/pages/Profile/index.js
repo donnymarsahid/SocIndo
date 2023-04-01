@@ -33,7 +33,7 @@ const Profile = () => {
       </View>
       <View style={styles.con_profile_form}>
         <Text style={styles.con_profile_form_username}>Username</Text>
-        <Text style={styles.con_profile_form_username_2}>donymrshd</Text>
+        <Text style={styles.con_profile_form_username_2}>donnymrshd</Text>
         <View style={styles.con_profile_form_box}>
           <View>
             <Text style={styles.con_profile_form_box_text}>Daftar Lapangan</Text>
