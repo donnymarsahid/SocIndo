@@ -5,8 +5,40 @@ import right_arrow from "../../assets/img/right_arrow.png"
 import field from "../../assets/img/field.png"
 import news_banner from "../../assets/img/news_banner.png"
 import Header from '../../components/header';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import Loading from '../Loading';
 
 const Homepage = () => {
+  const route = useRoute()
+  const navigation = useNavigation();
+
+  const heandleDetailField = async () => {
+    try{
+      navigation.navigate('DetailField')
+    }
+    catch(err){
+     console.log(err)
+    }
+  }
+
+  const heandleDetailNews = async () => {
+    try{
+      navigation.navigate('DetailNews')
+    }
+    catch(err){
+     console.log(err)
+    }
+  }
+
+  const handlePressNews = () => {
+    navigation.navigate("News")
+  };
+
+  const handlePressField = () => {
+    navigation.navigate("Field")
+  };
+
+
   return (
     <>
     <Header />
@@ -22,7 +54,7 @@ const Homepage = () => {
 
     {/* Content Section #START */}
     <View style={styles.con_content}>
-        <TouchableOpacity style={styles.con_content_title}>
+        <TouchableOpacity style={styles.con_content_title} onPress={() => handlePressField()}>
             <View>
                 <Text style={styles.con_content_title_head}>Lapangan Futsal</Text>
                 <Text  style={styles.con_content_title_sub}>Lapangan futsal menarik beserta ketersediaannya</Text>
@@ -32,12 +64,12 @@ const Homepage = () => {
             </View>
         </TouchableOpacity>
         <ScrollView horizontal style={styles.con_content_list}>
-            <TouchableOpacity style={styles.con_content_list_card}>
+            <TouchableOpacity style={styles.con_content_list_card} onPress={() => heandleDetailField()}>
                 <View>
                     <Image source={field} style={styles.con_content_list_image} />
                     <View style={styles.con_content_list_text}>
                         <Text style={styles.con_content_list_head}>CENTRO FUTSAL</Text>
-                        <Text style={styles.con_content_list_sub}>Jakarta Barat Kb. Jeruk</Text>
+                        <Text style={styles.con_content_list_sub}>Taman Sari, Jakarta Barat</Text>
                     </View>
                 </View>
             </TouchableOpacity>
@@ -47,7 +79,7 @@ const Homepage = () => {
 
     {/* News Section #START */}
     <View style={styles.con_content}>
-        <TouchableOpacity style={styles.con_content_title}>
+        <TouchableOpacity style={styles.con_content_title} onPress={() => handlePressNews()}>
             <View>
                 <Text style={styles.con_content_title_head}>Berita Terkini</Text>
                 <Text  style={styles.con_content_title_sub}>Informasi Mengenai Sepakbola</Text>
@@ -56,10 +88,12 @@ const Homepage = () => {
             <Image source={right_arrow} style={styles.con_content_ic_image} />
             </View>
         </TouchableOpacity>
+        <TouchableOpacity onPress={() => heandleDetailNews()}>
         <ImageBackground source={news_banner} style={styles.con_news_image}>
             <Text style={styles.con_news_head}>5 Rekomendasi Lapangan Futsal di Jakarta Barat</Text>
             <Text style={styles.con_news_sub}>SocIndo merekomendasikan lapangan yang ada disekitar jakarta</Text>
         </ImageBackground>
+        </TouchableOpacity>
     </View>
     {/* News Section #END */}
     </ScrollView>

@@ -1,15 +1,21 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, StyleSheet, Image, ImageBackground, TouchableOpacity, ScrollView } from 'react-native';
 import logo_header from "../../assets/img/logo_header.png"
 import profile_header from "../../assets/img/profile_header.png"
 
 const Header = () => {
+    const navigation = useNavigation()
+    const handlePress = () => {
+        navigation.navigate("Profile")
+      };
   return ( 
     <View style={styles.con_header}>
         <View style={styles.con_header_parent}>
             <View style={styles.con_header_logo}>
                 <Image source={logo_header} style={styles.header_logo_image} />
             </View>
+            <TouchableOpacity onPress={() => handlePress()}>
             <View style={styles.con_header_profile}>
                 <View></View>
                 <View style={styles.con_header_profile_child}>
@@ -17,6 +23,7 @@ const Header = () => {
                     <Image source={profile_header} style={styles.header_profile_image} />
                 </View>
             </View>
+            </TouchableOpacity>
         </View>
     </View> 
   )

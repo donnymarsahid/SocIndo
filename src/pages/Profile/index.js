@@ -1,8 +1,30 @@
+import { useNavigation } from '@react-navigation/native'
 import React from 'react'
-import {Image, StyleSheet, Text, View} from 'react-native' 
+import {Alert, Image, StyleSheet, Text, View} from 'react-native' 
 import profile from "../../assets/img/profile.png"
+import ButtonStyle1 from '../../components/buttons/ButtonStyle1'
 
 const Profile = () => {
+  const navigation  = useNavigation()
+   
+
+  const handlePressLogOut = () => {
+    Alert.alert(
+      'KELUAR',
+      'Anda yakin keluar?',
+      [
+        {
+          text: 'Ya',
+          onPress: () => navigation.navigate("Start")
+        },
+        {
+          text: 'Tidak',
+          onPress: () => console.log('Tombol Batal Ditekan'),
+          style: 'cancel'
+        }
+      ]
+    );
+  }
   return (
     <View style={styles.con_profile}>
       <View style={styles.con_profile_data}>
@@ -17,10 +39,12 @@ const Profile = () => {
             <Text style={styles.con_profile_form_box_text}>Daftar Lapangan</Text>
           </View>
           <View>
-            <Text style={styles.con_profile_form_box_text}>18</Text>
+            <Text style={styles.con_profile_form_box_text}>1</Text>
           </View>
         </View>
       </View>
+
+      <ButtonStyle1 text="KELUAR" onPress={handlePressLogOut} />
     </View>
   )
 }

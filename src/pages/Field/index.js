@@ -5,14 +5,15 @@ import right_arrow from "../../assets/img/right_arrow.png"
 import field from "../../assets/img/field.png"
 import news_banner from "../../assets/img/news_banner.png"
 import Header from '../../components/header';
+import ButtonStyle1 from '../../components/buttons/ButtonStyle1';
 import { useNavigation } from '@react-navigation/native';
 
 
-const News = () => {
+const Field = () => {
     const navigation = useNavigation()
-    const heandleDetailNews = async () => {
+    const heandleDetailField = async () => {
         try{
-          navigation.navigate('DetailNews')
+          navigation.navigate('DetailField')
         }
         catch(err){
          console.log(err)
@@ -25,25 +26,29 @@ const News = () => {
       <View style={styles.con_content}>
         <View style={styles.con_content_title}>
             <View>
-                <Text style={styles.con_content_title_head}>Berita Terkini</Text>
-                <Text  style={styles.con_content_title_sub}>Informasi Mengenai Sepakbola</Text>
+                <Text style={styles.con_content_title_head}>Lapangan Futsal</Text>
+                <Text  style={styles.con_content_title_sub}>Lapangan futsal menarik beserta ketersediaannya</Text>
             </View>
             <View style={styles.con_content_ic}>
             </View>
         </View>
-        <TouchableOpacity onPress={() => heandleDetailNews()}>
-        <ImageBackground source={news_banner} style={styles.con_news_image}>
-            <Text style={styles.con_news_head}>5 Rekomendasi Lapangan Futsal di Jakarta Barat</Text>
-            <Text style={styles.con_news_sub}>SocIndo merekomendasikan lapangan yang ada disekitar jakarta</Text>
-        </ImageBackground>
-        </TouchableOpacity>
+        <View style={{marginTop: 25}}></View>
+        <TouchableOpacity style={styles.con_content_list_card} onPress={() => heandleDetailField()}>
+                <View>
+                    <Image source={field} style={styles.con_content_list_image} />
+                    <View style={styles.con_content_list_text}>
+                        <Text style={styles.con_content_list_head}>CENTRO FUTSAL</Text>
+                        <Text style={styles.con_content_list_sub}>Taman Sari, Jakarta Barat</Text>
+                    </View>
+                </View>
+            </TouchableOpacity>
     </View>
     {/* News Section #END */}
     </>
   )
 }
 
-// Variable styles "News"
+// Variable styles "Field"
 const styles = StyleSheet.create({ 
   // Content Section #END
   con_content: {
@@ -130,4 +135,4 @@ const styles = StyleSheet.create({
   // News Section #END
 });
 
-export default News
+export default Field
